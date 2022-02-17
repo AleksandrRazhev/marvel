@@ -1,0 +1,39 @@
+@import '../../style/variables.scss';
+
+.header {
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $black;
+
+  &__title {
+    font-size: 2em;
+    line-height: 1.179em;
+    font-weight: bold;
+
+    a {
+      color: inherit
+    }
+  }
+
+  &__nav {
+
+    ul {
+      display: flex;
+      font-size: 1.714em;
+      line-height: 1.166em;
+      font-weight: bold;
+
+      li {
+        a {
+          color: inherit;
+        }
+      }
+
+      span {
+        padding: 0 0.333em;
+      }
+    }
+  }
+}

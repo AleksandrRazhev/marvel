@@ -1,0 +1,35 @@
+@import '../../style/variables.scss';
+
+.randomchar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &__block,
+  &__static {
+    padding: 35px;
+  }
+
+  &__block {
+    display: flex;
+    gap: 30px;
+    color: #000;
+  }
+
+  &__static {
+    color: #fff;
+    background-color: $dark;
+  }
+
+  &__img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+}
