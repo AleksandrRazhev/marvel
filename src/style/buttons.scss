@@ -1,0 +1,96 @@
+@import './variables.scss';
+
+.button {
+  display: inline-block;
+  min-width: 7.214em;
+  font-size: 1em;
+  border: none;
+  background-color: transparent;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 10px;
+    margin-left: 10px;
+    background-color: #000;
+  }
+
+  .inner {
+    position: relative;
+    padding: 0 1.286em;
+    font-size: $fz14;
+    line-height: $fz14lh16;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #000;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: -10px;
+      border-color: #000 transparent;
+      border-style: solid;
+      border-width: 0 0 10px 10px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      border-color: #000 transparent;
+      border-style: solid;
+      border-width: 10px 10px 0 0;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    height: 10px;
+    margin-right: 10px;
+    background-color: #000;
+  }
+
+  &__main {
+
+    &::before,
+    &::after {
+      background-color: $main-color;
+    }
+
+    .inner {
+      background-color: $main-color;
+
+      &::before,
+      &::after {
+        border-color: $main-color transparent;
+      }
+    }
+  }
+
+  &__secondary {
+
+    &::before,
+    &::after {
+      background-color: $grey;
+    }
+
+    .inner {
+      background-color: $grey;
+
+      &::before,
+      &::after {
+        border-color: $grey transparent;
+      }
+    }
+  }
+
+  &__long {
+    min-width: 12.143em;
+  }
+}

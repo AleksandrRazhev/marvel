@@ -1,0 +1,52 @@
+@import '../../style/variables.scss';
+
+.char {
+  &__content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+    column-gap: 25px;
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__list {}
+
+  &__grid {
+    margin-bottom: 3.214em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+    row-gap: 30px;
+  }
+
+  &__item {
+    filter: $filter;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    &_selected {
+      filter: $filter2;
+      transform: translateY(-8px);
+    }
+  }
+
+  &__name {
+    min-height: 5.364em;
+    padding: 0.682em;
+    font-weight: bold;
+    font-size: $fz22;
+    line-height: $fz22lh26;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: $dark;
+  }
+
+  &__button {
+    text-align: center;
+  }
+}

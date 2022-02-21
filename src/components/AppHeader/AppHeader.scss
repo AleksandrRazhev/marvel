@@ -1,7 +1,7 @@
 @import '../../style/variables.scss';
 
 .header {
-  padding: 50px 0;
+  margin-bottom: 3.571em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +9,7 @@
 
   &__title {
     font-size: 2em;
-    line-height: 1.179em;
+    line-height: 1.321em;
     font-weight: bold;
 
     a {

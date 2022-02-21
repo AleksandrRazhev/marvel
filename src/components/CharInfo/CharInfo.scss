@@ -1,0 +1,69 @@
+@import '../../style/variables.scss';
+
+.char {
+  &__info {
+    padding: 1.786em;
+    box-shadow: $box-shadow2;
+    @media (max-width: 700px) {
+      order: -1;
+    }
+  }
+
+  &__basics {
+    min-height: 8.214em;
+    margin-bottom: 1.071em;
+    display: grid;
+    grid-template-columns: 8.214em 1fr;
+    column-gap: 1.786em;
+
+    &-img {
+      width: 100%;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  &__info-name {
+    font-weight: bold;
+    font-size: $fz22;
+    line-height: $fz22lh26;
+    text-transform: uppercase;
+    color: $black;
+  }
+
+  &__descr {
+    margin-bottom: .714em;
+  }
+
+  &__comics {
+    display: block;
+    margin-bottom: .833em;
+    font-weight: bold;
+    font-size: $fz18;
+    line-height: $fz18lh21;
+    color: #000;
+  }
+
+  &__comics-list {}
+
+  &__comics-item {
+    line-height: 1.786em;
+    box-shadow: $box-shadow3;
+
+    &:not(:last-child) {
+      margin-bottom: .714em;
+    }
+  }
+
+}
