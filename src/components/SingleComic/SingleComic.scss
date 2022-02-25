@@ -1,0 +1,64 @@
+@import '../../style/variables.scss';
+
+.single-comic {
+  display: grid;
+  grid-template-areas: "img info back";
+  grid-template-columns: 20.929em auto 5.429em;
+  column-gap: 3.571em;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 33% auto 5.429em;
+  }
+
+  @media (max-width: 500px) {
+    grid-template-areas:
+      "img  img"
+      "info back";
+    grid-template-columns: auto 5.429em;
+  }
+
+  &__img {
+    grid-area: img;
+    width: 100%;
+
+    @media (max-width: 500px) {
+      margin-bottom: 2em;
+    }
+  }
+
+  &__info {
+    grid-area: info;
+  }
+
+  &__name {
+    margin-bottom: 1.136em;
+    font-weight: bold;
+    font-size: $fz22;
+    line-height: $fz22lh26;
+    color: $black;
+  }
+
+  &__descr {
+    margin-bottom: 1.389em;
+    font-weight: normal;
+    font-size: $fz18;
+    line-height: $fz18lh21;
+    color: $black;
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: $fz24;
+    line-height: $fz24lh28;
+    color: $main-color;
+  }
+
+  &__back {
+    grid-area: back;
+    text-align: center;
+    font-weight: bold;
+    font-size: $fz18;
+    line-height: $fz18lh21;
+    color: $black;
+  }
+}

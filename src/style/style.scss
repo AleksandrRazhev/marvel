@@ -64,7 +64,9 @@ input::-webkit-inner-spin-button {
   padding: 3.571em 3.571em 3.214em;
 
   // position: relative;
-  @media (max-width: 600px) {}
+  @media (max-width: 600px) {
+    padding: 1.5em;
+  }
 
 }
 

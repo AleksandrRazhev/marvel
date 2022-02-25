@@ -1,0 +1,41 @@
+@import '../../style/variables.scss';
+
+.comics {
+  &__list {
+    margin-bottom: 3.214em;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 4.786em;
+    row-gap: 3.929em;
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item-img {
+    width: 100%;
+    margin-bottom: .714em;
+  }
+
+  &__item-name,
+  &__item-price {
+    font-weight: bold;
+    font-size: $fz14;
+    line-height: $fz14lh16;
+  }
+
+  &__item-name {
+    color: $black;
+    margin-bottom: .357em;
+  }
+
+  &__item-price {
+    color: $grey2;
+  }
+}

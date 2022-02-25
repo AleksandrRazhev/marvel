@@ -1,0 +1,31 @@
+@import '../../style/variables.scss';
+
+.skeleton {
+  padding: 1.786em;
+
+  &__header {
+    display: flex;
+    height: 2.857em;
+    margin-bottom: 1.071em;
+  }
+
+  &__circle {
+    width: 2.857em;
+    margin-right: 0.643em;
+    border-radius: 50%;
+    background-color: $grey3;
+  }
+
+  &__mini {
+    flex-grow: 1;
+    background-color: $grey3;
+  }
+
+  &__block {
+    height: 2.5em;
+    &:not(:last-child) {
+      margin-bottom: 1.071em;
+    }
+    background-color: $grey3;
+  }
+}

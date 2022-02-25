@@ -13,7 +13,12 @@
     font-weight: bold;
 
     a {
-      color: inherit
+      color: inherit;
+      text-shadow: $text-shadow;
+
+      span {
+        color: $main-color;
+      }
     }
   }
 
@@ -33,6 +38,10 @@
 
       span {
         padding: 0 0.333em;
+      }
+
+      .js-active {
+        color: $main-color;
       }
     }
   }

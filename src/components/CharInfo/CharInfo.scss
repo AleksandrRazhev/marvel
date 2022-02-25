@@ -4,6 +4,7 @@
   &__info {
     padding: 1.786em;
     box-shadow: $box-shadow2;
+
     @media (max-width: 700px) {
       order: -1;
     }
@@ -64,6 +65,14 @@
     &:not(:last-child) {
       margin-bottom: .714em;
     }
+  }
+
+  &__select {
+    margin-bottom: 0.444em;
+    font-weight: bold;
+    font-size: $fz18;
+    line-height: $fz18lh21;
+    color: $black;
   }
 
 }

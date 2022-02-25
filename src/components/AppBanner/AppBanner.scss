@@ -1,0 +1,42 @@
+@import '../../style/variables.scss';
+
+.banner {
+  min-height: 7.143em;
+  display: flex;
+  margin-bottom: 3.571em;
+  padding: 0 1.786em 0 3.214em;
+  align-items: center;
+  background-color: $dark;
+  @media (max-width: 700px) {
+    padding: 0;
+  }
+
+  &__notcontext {
+    width: 10.852em;
+    height: 7.143em;
+    margin-right: 5.929em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media (max-width: 700px) {
+      margin-right: 0;
+    }
+  }
+
+  &__text {
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: $fz24;
+    line-height: $fz24lh28;
+    color: #fff;
+    @media (max-width: 700px) {
+      text-align: center;
+    }
+  }
+
+  img {
+    width: 8.071em;
+    height: 7.143em;
+    justify-content: end;
+  }
+}
