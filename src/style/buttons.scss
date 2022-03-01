@@ -6,6 +6,12 @@
   font-size: 1em;
   border: none;
   background-color: transparent;
+  transition: transform .3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   &::before {
     content: '';

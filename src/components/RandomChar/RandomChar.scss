@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 3.571em;
+  align-items: center;
   box-shadow: $box-shadow;
   @media (max-width: 700px) {
     grid-template-columns: 1fr;

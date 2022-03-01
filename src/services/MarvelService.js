@@ -12,12 +12,24 @@ class MarvelService {
     return await res.json();
   }
 
-  getAllCharacters = () => {
-    return this.getResource(`${this.#apiBase}characters?limit=9&offset=210&${this.#apiKey}`);
+  getAllCharacters = async () => {
+    const res = await this.getResource(`${this.#apiBase}characters?limit=9&offset=210&${this.#apiKey}`);
+    return res.data.results.map(this.#transformCaracter);
   }
 
-  getCharacter = (id) => {
-    return this.getResource(`${this.#apiBase}characters/${id}?${this.#apiKey}`);
+  getCharacter = async (id) => {
+    const res = await this.getResource(`${this.#apiBase}characters/${id}?${this.#apiKey}`);
+    return this.#transformCaracter(res.data.results[0]);
+  }
+
+  #transformCaracter = (char) => {
+    return {
+      name: char.name,
+      description: char.description ? `${char.description.slice(0, 210)}...` : 'This character is not have description',
+      thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
+      homepage: char.urls[0].url,
+      wiki: char.urls[1].url,
+    }
   }
 }
 
