@@ -9,6 +9,10 @@
   transition: transform .3s ease-in-out;
   cursor: pointer;
 
+  &:disabled {
+    filter: grayscale(.5);
+  }
+
   &:hover {
     transform: translateY(-5px);
   }
