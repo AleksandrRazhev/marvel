@@ -6,12 +6,26 @@
     grid-template-columns: 3fr 2fr;
     align-items: start;
     column-gap: 25px;
-    @media (max-width: 700px) {
+
+    @media (max-width: 800px) {
       grid-template-columns: 1fr;
     }
   }
 
   &__list {}
+
+  &__item {
+    filter: $filter;
+  }
+
+  &_selected {
+    filter: $filter2;
+    transform: translateY(-8px);
+  }
+
+  &__button {
+    text-align: center;
+  }
 
   &__grid {
     margin-bottom: 3.214em;
@@ -19,37 +33,38 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 25px;
     row-gap: 30px;
+
     @media (max-width: 700px) {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  &__item {
-    filter: $filter;
+    .item {
+      &__button {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        border: none;
+        cursor: pointer;
+      }
 
-    img {
-      display: block;
-      width: 100%;
+      &__img {
+        width: 100%;
+      }
+
+      &__name {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        min-height: 5.364em;
+        padding: 0.682em;
+        font-weight: bold;
+        font-size: $fz22;
+        line-height: $fz22lh26;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: $dark;
+      }
     }
-
-    &_selected {
-      filter: $filter2;
-      transform: translateY(-8px);
-    }
-  }
-
-  &__name {
-    min-height: 5.364em;
-    padding: 0.682em;
-    font-weight: bold;
-    font-size: $fz22;
-    line-height: $fz22lh26;
-    text-transform: uppercase;
-    color: #fff;
-    background-color: $dark;
-  }
-
-  &__button {
-    text-align: center;
   }
 }

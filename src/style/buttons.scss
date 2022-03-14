@@ -13,6 +13,13 @@
     transform: translateY(-5px);
   }
 
+  &:active {
+    transform: translateY(0);
+    .inner {
+      color: $black;
+    }
+  }
+
   &::before {
     content: '';
     display: block;

@@ -16,6 +16,7 @@
   }
 
   &__block {
+    height: 100%;
     display: flex;
     gap: 2.142em;
     color: #000;
@@ -31,6 +32,7 @@
   }
 
   &__static {
+    height: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -42,7 +44,7 @@
 
   &__img {
     width: 12.857em;
-    height: 12.857em;
+    height: 100%;
     object-fit: cover;
   }
 
