@@ -16,12 +16,13 @@
 
   &__item {
     filter: $filter;
+
+    &_selected {
+      filter: $filter2;
+      transform: translateY(-8px);
+    }
   }
 
-  &_selected {
-    filter: $filter2;
-    transform: translateY(-8px);
-  }
 
   &__button {
     text-align: center;
@@ -40,6 +41,7 @@
 
     .item {
       &__button {
+        outline: none;
         height: 100%;
         display: flex;
         flex-direction: column;

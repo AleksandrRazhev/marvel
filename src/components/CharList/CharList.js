@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MarvelService from '../../services/MarvelService';
 
@@ -6,8 +7,11 @@ import './CharList.scss';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Spinner from '../Spinner/Spinner';
+import { func } from 'prop-types';
 
 class CharList extends Component {
+
+  arrRefs = [];
 
   marvelService = new MarvelService();
 
@@ -59,15 +63,29 @@ class CharList extends Component {
     });
   }
 
+  charSelect = i => {
+    console.log(this.arrRefs);
+    this.arrRefs.forEach(item => item.parentElement.classList.remove('char__item_selected'));
+    this.arrRefs[i].parentElement.classList.add('char__item_selected');
+  }
+
+  setItemRef = ref => {
+    this.arrRefs.push(ref);
+  }
+
   renderItems = () => {
-    const list = this.state.charList.map(item => {
+    const list = this.state.charList.map((item, i) => {
       return (
         <li
           className="char__item item"
           key={item.id}
           onClick={() => this.props.onCharSelected(item.id)}
         >
-          <button className='item__button'>
+          <button
+            className='item__button'
+            onFocus={() => this.charSelect(i)}
+            ref={this.setItemRef}
+          >
             <img src={item.thumbnail} alt={item.name} className='item__img' />
             <div className="item__name">{item.name}</div>
           </button>
@@ -97,10 +115,11 @@ class CharList extends Component {
         {items}
         <div className="char__button">
           <button
-          style={charEnded ? {display: 'none'} : null}
+            style={charEnded ? { display: 'none' } : null}
             className="button button__main button__long"
             disabled={newItemLoading}
-            onClick={() => this.onRequest(offset)}>
+            onClick={() => this.onRequest(offset)}
+          >
             <div className="inner">load more</div>
           </button>
         </div>
@@ -109,5 +128,9 @@ class CharList extends Component {
   }
 
 };
+
+CharList.propTypes = {
+  onCharSelected: PropTypes.func.isRequired,
+}
 
 export default CharList;
