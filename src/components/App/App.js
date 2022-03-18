@@ -41,9 +41,9 @@ class App extends Component {
             </ErrorBoundary>
           </div>
           <img src={decoration} alt="vision" className="bg-decoration" />
-          <AppBanner />
+          {/* <AppBanner />
           <ComicsList />
-          <SingleComic />
+          <SingleComic /> */}
         </main>
       </div>
     )
