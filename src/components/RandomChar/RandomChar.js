@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import MarvelService from '../../services/MarvelService';
+import useMarvelService from '../../services/MarvelService';
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
@@ -11,44 +11,28 @@ import mjolnir from '../../resources/img/mjolnir.png';
 
 const RandomChar = () => {
 
-  const [char, setChar] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [char, setChar] = useState(null);
 
-  const marvelService = new MarvelService();
+  const { loading, error, getCharacter, clearError } = useMarvelService();
 
   useEffect(() => {
     updateChar();
   }, []);
 
   const onCharLoaded = (char) => {
-    setChar(previous => previous = char)
-    setLoading(false);
-  }
-
-  const onCharLoading = () => {
-    setLoading(true);
-  }
-
-  const onError = () => {
-    setLoading(false);
-    setError(true);
+    setChar(char);
   }
 
   const updateChar = () => {
+    clearError();
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
-
-    onCharLoading();
-
-    marvelService
-      .getCharacter(id)
-      .then(onCharLoaded)
-      .catch(onError);
+    getCharacter(id)
+      .then(data => onCharLoaded(data));
   }
 
   const errorMessage = error ? <ErrorMessage /> : null;
   const spinner = loading ? <Spinner /> : null;
-  const content = !(error || loading) ? <View char={char} /> : null;
+  const content = !(error || loading || !char) ? <View char={char} /> : null;
 
   return (
     <div className="randomchar" >
@@ -79,13 +63,14 @@ const RandomChar = () => {
   )
 };
 
-const View = ({ char }) => {
-  const { name, description, thumbnail, homepage, wiki } = char;
+const View = (props) => {
+  const { name, description, thumbnail, homepage, wiki } = props.char;
+  const imageNot = thumbnail ? (thumbnail.indexOf('image_not_available')) : null;
 
   return (
     <div className="randomchar__block">
       <img
-        style={(thumbnail.indexOf('image_not_available') !== -1) ? { objectFit: 'contain' } : null}
+        style={imageNot !== -1 ? { objectFit: 'contain' } : null}
         src={thumbnail} alt="Random character" className="randomchar__img"
       />
       <div className="randomchar__info">
