@@ -1,41 +1,67 @@
 @import '../../style/variables.scss';
 
 .comics {
-  &__list {
-    margin-bottom: 3.214em;
-  }
+  &__list {}
 
   &__grid {
+    margin-bottom: 3.214em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 4.786em;
     row-gap: 3.929em;
+
     @media (max-width: 700px) {
       grid-template-columns: repeat(3, 1fr);
     }
+
     @media (max-width: 500px) {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  &__item-img {
+  &__item {}
+
+  &__button {
+    text-align: center;
+  }
+}
+
+.comics-item {
+  display: block;
+
+  &__link {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  &__img {
     width: 100%;
     margin-bottom: .714em;
   }
 
-  &__item-name,
-  &__item-price {
+  &__name,
+  &__price {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
     font-weight: bold;
     font-size: $fz14;
     line-height: $fz14lh16;
   }
 
-  &__item-name {
+  &__name {
     color: $black;
     margin-bottom: .357em;
   }
 
-  &__item-price {
+  &__price {
+    display: flex;
+    align-items: flex-end;
     color: $grey2;
+  }
+
+  .image-none {
+    background-color: #3cad6930;
   }
 }

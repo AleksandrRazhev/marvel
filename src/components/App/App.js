@@ -36,9 +36,11 @@ const App = () => {
           </ErrorBoundary>
         </div>
         <img src={decoration} alt="vision" className="bg-decoration" />
-        {/* <AppBanner />
+        <ErrorBoundary>
+          <AppBanner />
           <ComicsList />
-          <SingleComic /> */}
+          {/* <SingleComic /> */}
+        </ErrorBoundary>
       </main>
     </div>
   )
