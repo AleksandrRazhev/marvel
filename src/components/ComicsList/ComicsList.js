@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import Spinner from '../Spinner/Spinner';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -43,7 +44,7 @@ const ComicsList = () => {
 
       return (
         <li key={`${item.id}-${i}`} className="comics__item comics-item">
-          <a className={`comics-item__link ${imageNoneStyle}`} href='#'>
+          <Link className={`comics-item__link ${imageNoneStyle}`} to={`/comics/${item.id}`}>
             <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} alt="ultimate war" className="comics-item__img" />
             <div className="comics-item__name">
               {item.title}
@@ -51,7 +52,7 @@ const ComicsList = () => {
             <div className="comics-item__price">
               {item.prices[0].price ?  item.prices[0].price + '$' : 'NOT AVAILABLE'}
             </div>
-          </a>
+          </Link>
         </li>
       )
     })

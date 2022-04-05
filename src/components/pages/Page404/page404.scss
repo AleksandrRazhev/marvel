@@ -1,0 +1,23 @@
+@import '../../../style/variables.scss';
+
+.err404 {
+  &__message {
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: $main-color;
+  }
+  &__link {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: blue;
+    text-decoration: underline;
+    transition: color .3s ease-in-out;
+    &:hover {
+      color: $black;
+    }
+  }
+}

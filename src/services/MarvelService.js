@@ -31,9 +31,19 @@ const useMarvelService = () => {
     try {
       const response = await request(`${_apiBase}comics?&orderBy=issueNumber&limit=8&offset=${offset}&${_apiKey}`);
       return response.data.results;
-    } catch(e) {
+    } catch (e) {
       console.log(e);
       return [];
+    }
+  }
+
+  const getComic = async (id) => {
+    try {
+      const res = await request(`${_apiBase}comics/${id}?${_apiKey}`);
+      return _transformComic(res.data.results[0]);
+    } catch (e) {
+      console.log(e);
+      return null;
     }
   }
 
@@ -49,7 +59,19 @@ const useMarvelService = () => {
     }
   }
 
-  return { loading, error, clearError, getAllCharacters, getCharacter, getAllComics };
+  const _transformComic = (comic) => {
+    return {
+      id: comic.id,
+      title: comic.title,
+      description: comic.description || 'There is no description',
+      pageCount: comic.pageCount ? `${comic.pageCount} р.` : 'No information about the number of pages',
+      thumbnail: comic.thumbnail.path + '.' + comic.thumbnail.extension,
+      language: comic.textObjects.language || 'en-us',
+      price: comic.prices.price ? `${comic.prices.price}$` : 'notAvaliable',
+    }
+  }
+
+  return { loading, error, clearError, getAllCharacters, getCharacter, getAllComics, getComic };
 }
 
 export default useMarvelService;
