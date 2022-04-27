@@ -1,3 +1,4 @@
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -47,11 +48,10 @@ const CharList = (props) => {
   }
 
   const renderItems = () => {
-    const list = charList.map((item, i) => {
-      return (
+    const list = charList.map((item, i) => (
+      <CSSTransition key={item.id} timeout={1000} classNames="char__item">
         <li
           className="char__item item"
-          key={item.id}
           onClick={() => props.onCharSelected(item.id)}
         >
           <button
@@ -63,12 +63,14 @@ const CharList = (props) => {
             <div className="item__name">{item.name}</div>
           </button>
         </li>
-      )
-    })
+      </CSSTransition>
+    ))
 
     return (
       <ul className="char__grid">
+        <TransitionGroup component={null}>
         {list}
+        </TransitionGroup>
       </ul>
     );
   }

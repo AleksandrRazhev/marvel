@@ -21,8 +21,25 @@
       filter: $filter2;
       transform: translateY(-8px);
     }
-  }
 
+    &-enter {
+      opacity: 0;
+    }
+
+    &-enter-active {
+      opacity: 1;
+      transition: opacity 1000ms ease-in-out;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transition: opacity 1000ms ease-in-out;
+    }
+  }
 
   &__button {
     text-align: center;

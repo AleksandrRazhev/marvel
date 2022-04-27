@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 import AppHeader from "../AppHeader/AppHeader";
 import { SingleComicPage } from '../pages'
