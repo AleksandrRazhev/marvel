@@ -1,0 +1,99 @@
+@import '../../style/variables.scss';
+
+.find {
+  padding: 1.785em;
+  box-shadow: $box-shadow2;
+
+  &__title {
+    margin-bottom: 1.285em;
+    font-family: Roboto Condensed;
+    font-size: 1.285em;
+    font-weight: 700;
+    line-height: 1.5em;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: auto 101px;
+  gap: 1.714em;
+  width: 100%;
+  // @media (max-width: 900px) {
+  //   grid-template-columns: 1fr;
+  // }
+
+  &__label {
+    font-family: Roboto Condensed;
+    font-size: 1.285em;
+    font-weight: 700;
+    line-height: 1.5em;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.143em;
+    box-shadow: $box-shadow3;
+    border: none;
+
+    &::placeholder {
+      font-family: Roboto Condensed;
+    }
+  }
+
+  &__button {
+    align-self: end;
+
+    &::before,
+    &::after {
+      background-color: $main-color;
+    }
+
+    .inner {
+      background-color: $main-color;
+
+      &::before,
+      &::after {
+        border-color: $main-color transparent;
+      }
+    }
+
+    &-page {
+      display: inline-block;
+      max-width: 101px;
+
+      &::before,
+      &::after {
+        background-color: $grey;
+      }
+
+      .inner {
+        background-color: $grey;
+
+        &::before,
+        &::after {
+          border-color: $grey transparent;
+        }
+      }
+    }
+  }
+
+  &__message {
+    font-family: Roboto Condensed;
+    font-size: 1.285em;
+    font-weight: 700;
+    line-height: 1.5em;
+    color: $green;
+
+    &_error {
+      color: $main-color;
+    }
+
+  }
+}
+
+.form-info {
+  padding: 1em;
+}

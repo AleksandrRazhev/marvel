@@ -1,0 +1,23 @@
+.char {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 3.571em;
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__block {
+
+  }
+
+  &__img {
+    width: 20.929em;
+  }
+
+  &__name {
+    margin-bottom: 1.785em;
+  }
+
+  &__desc {
+  }
+}

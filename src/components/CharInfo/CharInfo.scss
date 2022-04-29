@@ -4,6 +4,7 @@
   &__info {
     padding: 1.786em;
     box-shadow: $box-shadow2;
+    margin-bottom: 30px;
 
     @media (max-width: 700px) {
       order: -1;

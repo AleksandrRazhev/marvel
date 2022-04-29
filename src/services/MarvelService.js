@@ -27,6 +27,16 @@ const useMarvelService = () => {
     }
   }
 
+  const findChar = async (str) => {
+    try {
+      const res = await request(`${_apiBase}characters?nameStartsWith=${str}&${_apiKey}`);
+      return res.data.results;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
   const getAllComics = async (offset = 0) => {
     try {
       const response = await request(`${_apiBase}comics?&orderBy=issueNumber&limit=8&offset=${offset}&${_apiKey}`);
@@ -71,7 +81,7 @@ const useMarvelService = () => {
     }
   }
 
-  return { loading, error, clearError, getAllCharacters, getCharacter, getAllComics, getComic };
+  return { loading, error, clearError, getAllCharacters, getCharacter, getAllComics, getComic, findChar };
 }
 
 export default useMarvelService;
