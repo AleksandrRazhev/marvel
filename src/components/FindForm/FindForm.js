@@ -26,7 +26,7 @@ export default function FindForm() {
     (
       <>
         <p className='form__message'>There is! Visit {search[0].name} page?</p>
-        <Link to={`/char/${search[0].id}`} className="form__button form__button-page button">
+        <Link to={`/characters/${search[0].id}`} className="form__button form__button-page button">
           <div className="inner">TO PAGE</div>
         </Link>
       </>
